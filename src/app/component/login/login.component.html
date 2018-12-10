@@ -1,0 +1,44 @@
+<div align="middle">
+  <mat-tab-group mat-align-tabs="center">
+    <mat-tab label="Sign in">
+      <mat-card>
+        <mat-card-title>Login</mat-card-title>
+        <mat-card-content>
+            <p>
+              <mat-form-field>
+                <input matInput [(ngModel)]="username" placeholder="username">
+              </mat-form-field>
+            </p>
+            <p>
+              <mat-form-field>
+                <input matInput [(ngModel)]="password" placeholder="password">
+              </mat-form-field>
+            </p>
+        </mat-card-content>
+        <mat-card-actions>
+          <button mat-button (click)="login()">登录</button>
+        </mat-card-actions>
+      </mat-card>
+    </mat-tab>
+    <mat-tab label="Sign up">
+      <mat-card>
+        <mat-card-title>注册</mat-card-title>
+        <mat-card-content>
+            <p>
+              <mat-form-field>
+                <input matInput [(ngModel)]="username" placeholder="username">
+              </mat-form-field>
+            </p>
+            <p>
+              <mat-form-field>
+                <input matInput [(ngModel)]="password" placeholder="password">
+              </mat-form-field>
+            </p>
+        </mat-card-content>
+        <mat-card-actions>
+          <button mat-button (click)="register()">注册</button>
+        </mat-card-actions>
+      </mat-card>
+    </mat-tab>
+  </mat-tab-group>
+</div>

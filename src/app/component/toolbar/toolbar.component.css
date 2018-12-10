@@ -1,0 +1,33 @@
+/*.app-toolbar-toolbar{*/
+  /*display: grid;*/
+  /*grid-template-rows: 1fr;*/
+  /*grid-template-columns: 256px 1fr 128px 128px;*/
+/*}*/
+/*.app-toolbar-titleBar{*/
+  /*grid-column-start: 1;*/
+  /*grid-column-end: 2;*/
+  /*grid-row-start: 1;*/
+  /*grid-row-end: 2;*/
+/*}*/
+.app-toolbar-placeholder{
+  width: 24px
+}
+.app-toolbar-searchBar{
+  /*grid-column-start: 2;*/
+  /*grid-column-end: 3;*/
+  /*grid-row-start: 1;*/
+  /*grid-row-end: 2;*/
+  flex: 1 1 auto
+}
+/*.app-toolbar-menuButton{*/
+  /*grid-column-start: 3;*/
+  /*grid-column-end: 4;*/
+  /*grid-row-start: 1;*/
+  /*grid-row-end: 2;*/
+/*}*/
+/*.app-toolbar-accountButton{*/
+  /*grid-column-start: 4;*/
+  /*grid-column-end: 5;*/
+  /*grid-row-start: 1;*/
+  /*grid-row-end: 2;*/
+/*}*/

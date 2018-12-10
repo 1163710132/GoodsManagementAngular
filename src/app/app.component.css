@@ -1,0 +1,17 @@
+.app-app{
+  display: grid;
+  grid-template-columns: 1fr 1024px 1fr;
+  grid-template-rows: 64px 1fr;
+}
+.app-app-toolbar{
+  grid-column-start: 2;
+  grid-column-end: 3;
+  grid-row-start: 1;
+  grid-row-end: 2;
+}
+.app-router-outlet{
+  grid-column-start: 2;
+  grid-column-end: 3;
+  grid-row-start: 2;
+  grid-row-end: 3;
+}

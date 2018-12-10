@@ -1,0 +1,34 @@
+<div>
+  <mat-toolbar>
+    <mat-toolbar-row>
+      <span class="app-toolbar-titleBar">{{title}}</span>
+      <span class="app-toolbar-placeholder">
+      </span>
+      <span class="app-toolbar-searchBar">
+        <mat-form-field>
+          <input matInput type="search" [(ngModel)]="search" placeholder="搜索功能">
+        </mat-form-field>
+      </span>
+      <span class="app-toolbar-menuButton">
+        <button mat-button [matMenuTriggerFor]="navigator">Navigator</button>
+      </span>
+      <span class="app-toolbar-accountButton">
+        <ng-container *ngIf="uid != null">
+          <button mat-button [matMenuTriggerFor]="accountInfo">{{username}}</button>
+        </ng-container>
+        <ng-container *ngIf="uid == null">
+          <a routerLink="/login"><mat-icon>person</mat-icon></a>
+        </ng-container>
+      </span>
+    </mat-toolbar-row>
+  </mat-toolbar>
+  <mat-menu #navigator>
+    <button mat-menu-item routerLink="/purchase">处理进货</button>
+    <button mat-menu-item routerLink="/stock/supply">处理入库</button>
+    <button mat-menu-item></button>
+    <button mat-menu-item></button>
+  </mat-menu>
+  <mat-menu #accountInfo>
+    <button mat-menu-item>{{username}}</button>
+  </mat-menu>
+</div>
