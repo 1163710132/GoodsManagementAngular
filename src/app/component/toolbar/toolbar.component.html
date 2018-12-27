@@ -6,29 +6,43 @@
       </span>
       <span class="app-toolbar-searchBar">
         <mat-form-field>
-          <input matInput type="search" [(ngModel)]="search" placeholder="搜索功能">
+          <mat-select [(value)]="searchType">
+            <mat-option *ngFor="let type of searchTypes" [value]="type">
+              {{type}}
+            </mat-option>
+          </mat-select>
         </mat-form-field>
+        <mat-form-field>
+          <input matInput type="search" [value]="search" placeholder="搜索">
+        </mat-form-field>
+        <button mat-button (click)="doSearch()" [matMenuTriggerFor]="searchResult">搜索</button>
       </span>
       <span class="app-toolbar-menuButton">
-        <button mat-button [matMenuTriggerFor]="navigator">Navigator</button>
+        <button mat-button [matMenuTriggerFor]="navigator">导航</button>
       </span>
       <span class="app-toolbar-accountButton">
         <ng-container *ngIf="uid != null">
           <button mat-button [matMenuTriggerFor]="accountInfo">{{username}}</button>
         </ng-container>
         <ng-container *ngIf="uid == null">
-          <a routerLink="/login"><mat-icon>person</mat-icon></a>
+          <a routerLink="/account"><mat-icon>person</mat-icon></a>
         </ng-container>
       </span>
     </mat-toolbar-row>
   </mat-toolbar>
   <mat-menu #navigator>
-    <button mat-menu-item routerLink="/purchase">处理进货</button>
-    <button mat-menu-item routerLink="/stock/supply">处理入库</button>
-    <button mat-menu-item></button>
-    <button mat-menu-item></button>
+    <button mat-menu-item routerLink="/account">账户面板</button>
+    <button mat-menu-item routerLink="/buyer">采购面板</button>
+    <button mat-menu-item routerLink="/stockman">库管面板</button>
+    <button mat-menu-item routerLink="/salesman">销售面板</button>
+    <button mat-menu-item routerLink="/clerk">柜员面板</button>
+    <button mat-menu-item routerLink="/manager">主管面板</button>
+    <button mat-menu-item routerLink="/inventory">盘点面板</button>
   </mat-menu>
   <mat-menu #accountInfo>
+    <button mat-menu-item>{{username}}</button>
+  </mat-menu>
+  <mat-menu #searchResult>
     <button mat-menu-item>{{username}}</button>
   </mat-menu>
 </div>

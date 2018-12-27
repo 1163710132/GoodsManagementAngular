@@ -1,0 +1,46 @@
+<div>
+  <mat-card>
+    <mat-card-header>
+      <mat-card-title>进货订单</mat-card-title>
+      <span class="placeholder"></span>
+      <mat-form-field>
+        <input matInput type="number" [(formControl)]="total" placeholder="合计">
+      </mat-form-field>
+      <mat-form-field>
+        <input matInput type="number" [(formControl)]="supplier" placeholder="供应商">
+      </mat-form-field>
+    </mat-card-header>
+    <mat-card-content>
+      <div>
+        <mat-table [(dataSource)]="dataSource">
+          <ng-container matColumnDef="goods">
+            <mat-header-cell *matHeaderCellDef>商品编号</mat-header-cell>
+            <mat-cell *matCellDef="let element">
+                <input matInput type="number" [(formControl)]="element[0]">
+            </mat-cell>
+          </ng-container>
+          <ng-container matColumnDef="amount">
+            <mat-header-cell *matHeaderCellDef>数量</mat-header-cell>
+            <mat-cell *matCellDef="let element">
+              <input matInput type="number" [(formControl)]="element[1]">
+            </mat-cell>
+          </ng-container>
+          <ng-container matColumnDef="remove">
+            <mat-header-cell *matHeaderCellDef>删除</mat-header-cell>
+            <mat-cell *matCellDef="let element">
+              <button mat-icon-button>
+                <mat-icon (click)="removeTerm(element)">delete</mat-icon>
+              </button>
+            </mat-cell>
+          </ng-container>
+          <mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>
+          <mat-row *matRowDef="let row; columns: displayedColumns;"></mat-row>
+        </mat-table>
+      </div>
+    </mat-card-content>
+    <mat-card-actions>
+      <button mat-button (click)="addTerm()">添加</button>
+      <button mat-button (click)="submit()">提交</button>
+    </mat-card-actions>
+  </mat-card>
+</div>

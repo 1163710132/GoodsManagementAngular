@@ -1,7 +1,7 @@
 import {Identified} from './constraint/identified';
 import {Mutable} from './constraint/mutable';
 
-export class Account implements Identified, Mutable {
+export class Account implements Mutable {
   id: number;
   lastModified: Date;
   version: number;

@@ -1,0 +1,51 @@
+<div>
+  <mat-card>
+    <mat-card-header>
+      <mat-card-title>货品盘点</mat-card-title>
+      <span class="placeholder"></span>
+      <mat-form-field>
+        <input matInput type="number" [(formControl)]="shelfControl" name="shelfId" placeholder="货架">
+      </mat-form-field>
+      <button mat-button (click)="loadShelf(shelfControl.value)">载入</button>
+    </mat-card-header>
+    <mat-card-content>
+      <mat-table [(dataSource)]="dataSource">
+        <ng-container matColumnDef="item">
+          <mat-header-cell *matHeaderCellDef>编号</mat-header-cell>
+          <mat-cell *matCellDef="let element">{{element[0].value}}</mat-cell>
+        </ng-container>
+        <ng-container matColumnDef="price">
+          <mat-header-cell *matHeaderCellDef>价格</mat-header-cell>
+          <mat-cell *matCellDef="let element">{{element[1].value}}</mat-cell>
+        </ng-container>
+        <ng-container matColumnDef="amount">
+          <mat-header-cell *matHeaderCellDef>数量</mat-header-cell>
+          <mat-cell *matCellDef="let element">
+            <mat-form-field>
+              <input matInput type="number" [(formControl)]="element[2]">
+            </mat-form-field>
+          </mat-cell>
+        </ng-container>
+        <ng-container matColumnDef="goodsStorage">
+          <mat-header-cell *matHeaderCellDef>存储</mat-header-cell>
+          <mat-cell *matCellDef="let element">{{element[3]}}</mat-cell>
+        </ng-container>
+        <ng-container matColumnDef="operation">
+          <mat-header-cell *matHeaderCellDef>操作</mat-header-cell>
+          <mat-cell *matCellDef="let element">
+            <button mat-icon-button (click)="done(element)"><mat-icon>done</mat-icon></button>
+            <button mat-icon-button (click)="refresh(element)"><mat-icon>refresh</mat-icon></button>
+            <button mat-icon-button (click)="delete(element)"><mat-icon>delete</mat-icon></button>
+          </mat-cell>
+        </ng-container>
+        <mat-header-row *matHeaderRowDef="['item', 'price', 'amount', 'operation']"></mat-header-row>
+        <mat-row *matRowDef="let row; columns: ['item', 'price', 'amount', 'operation'];"></mat-row>
+      </mat-table>
+    </mat-card-content>
+    <mat-card-actions>
+      <button mat-button (click)="loadShelf(shelfControl.value)">刷新</button>
+      <button mat-button (click)="addTerm()">添加</button>
+      <button mat-button>确认</button>
+    </mat-card-actions>
+  </mat-card>
+</div>

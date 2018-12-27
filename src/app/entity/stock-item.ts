@@ -3,7 +3,7 @@ import {Identified} from './constraint/identified';
 import {Mutable} from './constraint/mutable';
 import {Priced} from './constraint/priced';
 
-export class StoreItem implements SomeGoods, Identified, Mutable, Priced{
+export class StockItem implements SomeGoods, Identified, Mutable, Priced{
   amount: number;
   created: Date;
   goods: number;
@@ -12,5 +12,5 @@ export class StoreItem implements SomeGoods, Identified, Mutable, Priced{
   price: number;
   version: number;
   stock: number;
-
+  goodsStorage: number;
 }

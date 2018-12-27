@@ -1,0 +1,44 @@
+<div>
+  <mat-card>
+    <mat-card-header>
+      <mat-card-title>
+        补货管理
+      </mat-card-title>
+      <span class="placeholder"></span>
+      <mat-form-field>
+        <input type="number" matInput name="affair" placeholder="编号" [formControl]="affairControl">
+      </mat-form-field>
+      <mat-form-field>
+        <input type="number" matInput name="source" placeholder="来源" [formControl]="sourceControl">
+      </mat-form-field>
+    </mat-card-header>
+    <mat-card-content>
+      <mat-table [dataSource]="dataSource">
+        <ng-container matColumnDef="goods">
+          <mat-header-cell *matHeaderCellDef>商品编号</mat-header-cell>
+          <mat-cell *matCellDef="let element">
+            <input matInput type="number" [(formControl)]="element[0]">
+          </mat-cell>
+        </ng-container>
+        <ng-container matColumnDef="amount">
+          <mat-header-cell *matHeaderCellDef>数量</mat-header-cell>
+          <mat-cell *matCellDef="let element">
+            <input matInput type="number" [(formControl)]="element[1]">
+          </mat-cell>
+        </ng-container>
+        <ng-container matColumnDef="target">
+          <mat-header-cell *matHeaderCellDef>目的</mat-header-cell>
+          <mat-cell *matCellDef="let element">
+            <input matInput type="number" [(formControl)]="element[2]">
+          </mat-cell>
+        </ng-container>
+        <mat-header-row *matHeaderRowDef="['goods', 'amount', 'target']"></mat-header-row>
+        <mat-row *matRowDef="let row; columns: ['goods', 'amount', 'target'];"></mat-row>
+      </mat-table>
+    </mat-card-content>
+    <mat-card-actions>
+      <button mat-button (click)="submit()">提交</button>
+      <button mat-button (click)="addTerm()">添加项</button>
+    </mat-card-actions>
+  </mat-card>
+</div>

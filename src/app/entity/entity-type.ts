@@ -1,0 +1,13 @@
+export enum EntityType {
+  STOCK_ITEM = 0,
+  SHELF_ITEM,
+  SUPPLIER,
+  CONSUMER,
+  CART,
+  BUYER,
+  PURCHASE,
+  MAIN,
+  STOCK,
+  SHELF,
+  ACCOUNT
+}

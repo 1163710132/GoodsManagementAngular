@@ -14,7 +14,7 @@ export class LoginComponent implements OnInit {
 
   constructor(private accountApi: AccountService) {
     this.username = 'admin';
-    this.password = 'password';
+    this.password = 'admin';
   }
 
   ngOnInit() {
