@@ -1,3 +1,3 @@
-export interface Described {
+export interface Descibed {
   description: string;
 }

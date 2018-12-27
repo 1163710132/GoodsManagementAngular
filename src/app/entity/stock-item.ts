@@ -1,14 +1,16 @@
 import {SomeGoods} from './constraint/some-goods';
 import {Identified} from './constraint/identified';
-import {Counted} from './constraint/counted';
 import {Mutable} from './constraint/mutable';
+import {Priced} from './constraint/priced';
 
-export class StockItem implements SomeGoods, Identified, Counted, Mutable {
+export class StoreItem implements SomeGoods, Identified, Mutable, Priced{
   amount: number;
+  created: Date;
   goods: number;
   id: number;
   lastModified: Date;
+  price: number;
   version: number;
   stock: number;
-  created: Date;
+
 }
